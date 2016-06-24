@@ -36,8 +36,20 @@ public class Article implements Serializable{
             this.webUrl = jsonObject.getString("web_url");
             this.headline = jsonObject.getJSONObject("headline").getString("main");
 
-            String typeCapitalized = capitalize(jsonObject.getString("document_type"));
-            this.type = typeCapitalized;
+            this.type = capitalize(jsonObject.getString("document_type"));
+
+            /*if (!jsonObject.getString("news_desk").equals("null")) {
+                String typeCapitalized = capitalize(jsonObject.getString("news_desk"));
+                this.type = typeCapitalized;
+            }
+            else if (!jsonObject.getString("section_name").equals("null")) {
+                String typeCapitalized = capitalize(jsonObject.getString("section_name"));
+                this.type = typeCapitalized;
+            }
+            else {
+                this.type = "";
+            }*/
+
 
             JSONArray multimedia = jsonObject.getJSONArray("multimedia");
 
